@@ -32,7 +32,8 @@ var durationScale = []time.Duration{
 
 // UTCDate builds a time.Time in the UTC timezone using up to the first 6 provided values as
 // year, month, day, hour, minute, second, and nanoseconds. Any extra values are ignored. Examples:
-// - UTCDate(2000, 1, 2) would return "2000-01-02 00:00:00 +0000 UTC"
+// - UTCDate(2000, 1, 2) would return a time.Time equal to "2000-01-02 00:00:00 +0000 UTC"
+// - UTCDate(2000, 1, 2, 15, 16, 17, 18) would return a time.Time equal to "2000-01-02 15:16:17.000000018 +0000 UTC"
 func UTCDate(values ...int) time.Time {
 	for len(values) < 7 {
 		if len(values) == 1 || len(values) == 2 {

@@ -2,7 +2,9 @@ package nu
 
 import "net/url"
 
-// URL builds a *url.URL using the provided scheme, host, path and queryPairs.
+// URL builds a *url.URL using the provided scheme, host, path and queryPairs. Examples:
+// - URL("https", "example.com", "cats", "a", "1", "b", "2") would return a *url.URL
+// equivalent to "https://example.com/cats?a=1&b=2"
 func URL(scheme, host, path string, queryPairs ...string) *url.URL {
 	return &url.URL{
 		Scheme:   scheme,
