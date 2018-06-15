@@ -12,8 +12,11 @@ standard library types.
 ```go
 func Duration(values ...int) time.Duration
 ```
-Duration builds a duration using the provided values as hours, minutes, seconds,
-milliseconds, microseconds, and nanoseconds. Any extra values are ignored.
+Duration builds a duration using up to the first 6 provided values as hours,
+minutes, seconds, milliseconds, microseconds, and nanoseconds. Any extra values
+are ignored. Examples: - Duration(1, 2, 3) would return the duration equal to
+"1h2m3s". - Duration(1, 2, 3, 4, 5, 6) would return the duration equal to
+"1h2m3.004005006s".
 
 #### func  StringBuilder
 
@@ -30,6 +33,8 @@ https://golang.org/pkg/bytes/#NewBufferString
 func URL(scheme, host, path string, queryPairs ...string) *url.URL
 ```
 URL builds a *url.URL using the provided scheme, host, path and queryPairs.
+Examples: - URL("https", "example.com", "cats", "a", "1", "b", "2") would return
+a *url.URL equivalent to "https://example.com/cats?a=1&b=2"
 
 #### func  URLValues
 
@@ -45,9 +50,11 @@ https://golang.org/pkg/strings/#NewReplacer
 ```go
 func UTCDate(values ...int) time.Time
 ```
-UTCDate builds a time.Time in the UTC timezone using the provided values as
-year, month, day, hour, minute, second, and nanoseconds. Any extra values are
-ignored.
+UTCDate builds a time.Time in the UTC timezone using up to the first 6 provided
+values as year, month, day, hour, minute, second, and nanoseconds. Any extra
+values are ignored. Examples: - UTCDate(2000, 1, 2) would return a time.Time
+equal to "2000-01-02 00:00:00 +0000 UTC" - UTCDate(2000, 1, 2, 15, 16, 17, 18)
+would return a time.Time equal to "2000-01-02 15:16:17.000000018 +0000 UTC"
 
 #### func  WaitGroup
 
