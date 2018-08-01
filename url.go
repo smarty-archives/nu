@@ -2,6 +2,15 @@ package nu
 
 import "net/url"
 
+// URLParsed parses the value as a url and panics in the case of an error.
+func URLParsed(value string) *url.URL {
+	parsed, err := url.Parse(value)
+	if err != nil {
+		panic(err)
+	}
+	return parsed
+}
+
 // URL builds a *url.URL using the provided scheme, host, path and queryPairs. Examples:
 // - URL("https", "example.com", "cats", "a", "1", "b", "2") would return a *url.URL
 // equivalent to "https://example.com/cats?a=1&b=2"
