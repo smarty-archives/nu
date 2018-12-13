@@ -18,6 +18,27 @@ are ignored. Examples: - Duration(1, 2, 3) would return the duration equal to
 "1h2m3s". - Duration(1, 2, 3, 4, 5, 6) would return the duration equal to
 "1h2m3.004005006s".
 
+#### func  Error
+
+```go
+func Error(args ...interface{}) error
+```
+Error is a convenient combination of errors.New and fmt.Sprint.
+
+#### func  Errorf
+
+```go
+func Errorf(format string, args ...interface{}) error
+```
+Errorf is a convenient combination of errors.New and fmt.Sprintf.
+
+#### func  Errorln
+
+```go
+func Errorln(args ...interface{}) error
+```
+Errorln is a convenient combination of errors.New and fmt.Sprintln.
+
 #### func  StringBuilder
 
 ```go
@@ -35,6 +56,13 @@ func URL(scheme, host, path string, queryPairs ...string) *url.URL
 URL builds a *url.URL using the provided scheme, host, path and queryPairs.
 Examples: - URL("https", "example.com", "cats", "a", "1", "b", "2") would return
 a *url.URL equivalent to "https://example.com/cats?a=1&b=2"
+
+#### func  URLParsed
+
+```go
+func URLParsed(value string) *url.URL
+```
+URLParsed parses the value as a url and panics in the case of an error.
 
 #### func  URLValues
 
