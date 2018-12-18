@@ -52,6 +52,4 @@ func UTCDate(values ...int) time.Time {
 		values[6],             // nanosecond
 		time.UTC,
 	)
-
 }
-
