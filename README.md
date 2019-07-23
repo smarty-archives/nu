@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/smartystreets/nu.svg?branch=master)](https://travis-ci.org/smartystreets/nu)
+
 # nu
 --
     import "github.com/smartystreets/nu"
