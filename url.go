@@ -22,6 +22,7 @@ func URL(scheme, host, path string, queryPairs ...string) *url.URL {
 		RawQuery: URLValues(queryPairs...).Encode(),
 	}
 }
+
 // URLValues populates and returns a url.Values using the provided string key/value pairs.
 // Much like strings.NewReplacer, it panics if len(pairs) is not even.
 // See https://golang.org/pkg/strings/#NewReplacer
@@ -37,4 +38,3 @@ func URLValues(keyValuePairs ...string) url.Values {
 	}
 	return values
 }
-

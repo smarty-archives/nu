@@ -8,4 +8,3 @@ func TestWaitGroup(t *testing.T) {
 	group.Wait()
 	t.Log("Success!")
 }
-
