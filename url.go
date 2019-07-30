@@ -1,6 +1,9 @@
 package nu
 
-import "net/url"
+import (
+	"errors"
+	"net/url"
+)
 
 // URLParsed parses the value as a url and panics in the case of an error.
 func URLParsed(value string) *url.URL {
@@ -28,7 +31,7 @@ func URL(scheme, host, path string, queryPairs ...string) *url.URL {
 // See https://golang.org/pkg/strings/#NewReplacer
 func URLValues(keyValuePairs ...string) url.Values {
 	if len(keyValuePairs)%2 != 0 {
-		panic("Must provide an even number of key/value strings.")
+		panic(errMalformedInput)
 	}
 	values := make(url.Values, len(keyValuePairs)/2)
 	for x := 0; x < len(keyValuePairs); x += 2 {
@@ -38,3 +41,5 @@ func URLValues(keyValuePairs ...string) url.Values {
 	}
 	return values
 }
+
+var errMalformedInput = errors.New("must provide an even number of key/value strings")
