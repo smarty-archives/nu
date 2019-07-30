@@ -17,5 +17,5 @@ func Errorln(args ...interface{}) error {
 
 // Errorf is a convenient combination of errors.New and fmt.Sprintf.
 func Errorf(format string, args ...interface{}) error {
-	return errors.New(fmt.Sprintf(format, args...))
+	return fmt.Errorf(format, args...)
 }
